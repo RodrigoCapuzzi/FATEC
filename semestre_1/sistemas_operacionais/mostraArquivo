@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Código do programa Pula 7\n"
+cat pula7
+echo "\nCódigo do programa Break\n"
+cat break
+exit 0
