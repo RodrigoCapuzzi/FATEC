@@ -155,37 +155,62 @@ int main()
 				char dado_a_atualizar = '0';
 				while(dado_a_atualizar != '6')
 				{
-					printf("Qual desses dados você quer alterar?\n");
-					printf("Digite 1 para o nome, 2 para telefone, 3 para endereco, 4 para telefone ou 5 para data de nascimento\n");
+					printf("Qual desses dados você quer alterar?\n\n");
+					printf("1 - Nome\n");
+					printf("2 - Telefone\n");
+					printf("3 - Endereco\n");
+					printf("4 - Email\n");
+					printf("5 - Data de nascimento\n");
+					printf("6 - Voltar ao menu anterior.\n\n");
 					scanf("%c", &dado_a_atualizar);
 					if (dado_a_atualizar == '1')
 					{
 						printf("Vamos alterar o nome\n");
-						return 0;
+						printf("Atual = %s\n", agenda[resposta].nome);
+						char novo_nome[20];
+						printf("Digite o novo nome:\n");
+						scanf(" %s", &novo_nome);
+						strcpy(agenda[resposta].nome, novo_nome);
 					}
 					else if (dado_a_atualizar == '2')
 					{
 						printf("Vamos alterar o telefone\n");
-						return 0;
+						printf("Atual = %s\n", agenda[resposta].telefone);
+						char novo_telefone[20];
+						printf("Digite o novo telefone:\n");
+						scanf("%s", &novo_telefone);
+						strcpy(agenda[resposta].telefone, novo_telefone);
 					}
 					else if (dado_a_atualizar == '3')
 					{
 						printf("Vamos alterar o endereço\n");
-						return 0;
+						printf("Atual = %s\n", agenda[resposta].endereco);
+						char novo_endereco[40];
+						printf("Digite o novo endereco:\n");
+						scanf(" %s", &novo_endereco);
+						//gets(novo_endereco);
+						printf("Novo endereço = %s", novo_endereco);
+						strcpy(agenda[resposta].endereco, novo_endereco);
 					}
 					else if (dado_a_atualizar == '4')
 					{
-						printf("Vamos alterar o telefone\n");
-						return 0;
+						printf("Vamos alterar o email\n");
+						printf("Atual = %s\n", agenda[resposta].email);
+						char novo_email[20];
+						printf("Digite o novo email:\n");
+						scanf("%s", &novo_email);
+						strcpy(agenda[resposta].email, novo_email);
 					}
 					else if (dado_a_atualizar == '5')
 					{
 						printf("Vamos alterar a data de nascimento\n");
-						return 0;
-					}
-					else
-					{
-						printf("Digite 6 se não deseja atualizar nenhum dado\n");
+						printf("Atual = %d/%d/%d\n", agenda[resposta].dataNascimento.dia, agenda[resposta].dataNascimento.mes, agenda[resposta].dataNascimento.ano);
+						DATA nova_data;
+						printf("Digite a nova data de nascimento no formato DD/MM/AAAA:\n");
+						scanf("%d/%d/%d", &nova_data.dia, &nova_data.mes, &nova_data.ano);
+						agenda[resposta].dataNascimento.dia = nova_data.dia;
+						agenda[resposta].dataNascimento.mes = nova_data.mes;
+						agenda[resposta].dataNascimento.ano = nova_data.ano;
 					}
 				}
 			}
