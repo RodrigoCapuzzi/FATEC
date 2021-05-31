@@ -1,5 +1,3 @@
--- 2. Faça a inclusão de ao menos 3 documentos por coleção
-
 db.PRODUTOS.insert({"_id":{"$oid":"60ad8d3c9e45368c7a00af21"},"codigo":{"$numberInt":"1"},"nome":"Margherita","valor":{"$numberDouble":"60.0"},"qtd":{"$numberInt":"20"},"descritivo":"Pizzas de Margherita","caminhoImagem":"https://static.clubedaanamariabraga.com.br/wp-content/uploads/2020/08/pizza-margherita-1024x576.jpg","categorias":{"codigoCategoria":{"$numberInt":"1"},"nomeCategoria":"Pizzas"}})
 
 db.PRODUTOS.insert({"_id":{"$oid":"60ad8e9d9e45368c7a00af22"},"codigo":{"$numberInt":"2"},"nome":"Calabresa","valor":{"$numberDouble":"55.0"},"qtd":{"$numberInt":"10"},"descritivo":"Pizzas de Calabresa","caminhoImagem":"https://t1.rg.ltmcdn.com/pt/images/9/8/3/img_pizza_calabresa_e_mussarela_4389_orig.jpg","categorias":{"codigoCategoria":{"$numberInt":"1"},"nomeCategoria":"Pizzas"}})
