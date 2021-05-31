@@ -1,0 +1,44 @@
+-- 2. Faça a inclusão de ao menos 3 documentos por coleção
+
+db.PRODUTOS.insert({"_id":{"$oid":"60ad8d3c9e45368c7a00af21"},"codigo":{"$numberInt":"1"},"nome":"Margherita","valor":{"$numberDouble":"60.0"},"qtd":{"$numberInt":"20"},"descritivo":"Pizzas de Margherita","caminhoImagem":"https://static.clubedaanamariabraga.com.br/wp-content/uploads/2020/08/pizza-margherita-1024x576.jpg","categorias":{"codigoCategoria":{"$numberInt":"1"},"nomeCategoria":"Pizzas"}})
+
+db.PRODUTOS.insert({"_id":{"$oid":"60ad8e9d9e45368c7a00af22"},"codigo":{"$numberInt":"2"},"nome":"Calabresa","valor":{"$numberDouble":"55.0"},"qtd":{"$numberInt":"10"},"descritivo":"Pizzas de Calabresa","caminhoImagem":"https://t1.rg.ltmcdn.com/pt/images/9/8/3/img_pizza_calabresa_e_mussarela_4389_orig.jpg","categorias":{"codigoCategoria":{"$numberInt":"1"},"nomeCategoria":"Pizzas"}})
+
+db.PRODUTOS.insert({"_id":{"$oid":"60ad8ed99e45368c7a00af23"},"codigo":{"$numberInt":"3"},"nome":"Mussarela","valor":{"$numberDouble":"65.0"},"qtd":{"$numberInt":"12"},"descritivo":"Pizzas de Mussarela","caminhoImagem":"https://maniadeesfiha.com.br/wp-content/uploads/2019/03/Milla-Restaurante-e-Pizzaria-Mussarela.jpg","categorias":{"codigoCategoria":{"$numberInt":"1"},"nomeCategoria":"Pizzas"}})
+
+db.CLIENTES.insert({"_id":{"$oid":"60ad937eddfd220b9d541ef5"},"codigo":{"$numberInt":"1"},"nome":"Rodrigo","email":"rodrigo@gmail.com","senha":"janciudcn","cpf":"333.333.333-22","telefone":"1199999-9999","ENDERECO":{"cidade":"São Paulo","CEP":"33333-333","estado":"SP","logradouro":"Rua Cisplatina","numero":{"$numberInt":"2"}}})
+
+db.CLIENTES.insert({"_id":{"$oid":"60ad9437ddfd220b9d541ef6"},"codigo":{"$numberInt":"2"},"nome":"Diego","email":"diego@gmail.com","senha":"bdycbiuda","cpf":"222.222.222-11","telefone":"1198888-8765","ENDERECO":{"cidade":"São Paulo","CEP":"22222-111","estado":"SP","logradouro":"Rua Direita","numero":{"$numberInt":"3"}}})
+
+db.CLIENTES.insert({"_id":{"$oid":"60ad946dddfd220b9d541ef7"},"codigo":{"$numberInt":"3"},"nome":"Mauricio","email":"mauricio@gmail.com","senha":"naisncinai","cpf":"111.222.333-44","telefone":"1198765-4321","ENDERECO":{"cidade":"São Paulo","CEP":"22222-111","estado":"SP","logradouro":"Rua Esquerda","numero":{"$numberInt":"4"}}})
+
+db.PEDIDOS.insert({"_id":{"$oid":"60ad95b2ddfd220b9d541ef8"},"codigo":"1","data":{"$date":{"$numberLong":"1621911600000"}},"total":"30","CLIENTE":{"codigo":"1","nome":"Rodrigo","email":"rodrigo@gmail.com","senha":"cibcius","CPF":"111.111.111-11","telefone":"1198888-8888","ENDERECO":{"cidade":"São Paulo","CEP":"22222-333","estado":"SP","logradouro":"Rua Cisplatina","numero":"1"}},"ITEMS":{"PRODUTO":{"codigo":"1","nome":"Margherita","Valor":{"$numberDouble":"23.07"},"qtd":{"$numberInt":"1"}}}})
+
+db.PEDIDOS.insert({"_id":{"$oid":"60ad9722ddfd220b9d541ef9"},"codigo":"2","data":{"$date":{"$numberLong":"1621911600000"}},"total":"10","CLIENTE":{"codigo":"2","nome":"Diego","email":"diego@gmail.com","senha":"acnidncida","CPF":"222.222.222-11","telefone":"1198765-4321","ENDERECO":{"cidade":"São Paulo","CEP":"11111-444","estado":"SP","logradouro":"Rua Direita","numero":"2"}},"ITEMS":{"PRODUTO":{"codigo":"1","nome":"Calabresa","Valor":{"$numberDouble":"55.03"},"qtd":{"$numberInt":"1"}}}})
+
+db.PEDIDOS.insert({"_id":{"$oid":"60ad9775ddfd220b9d541efa"},"codigo":"3","data":{"$date":{"$numberLong":"1621911600000"}},"total":"9","CLIENTE":{"codigo":"3","nome":"Mauricio","email":"mauricio@gmail.com","senha":"asbisj","CPF":"333.333.444-11","telefone":"1197643-2534","ENDERECO":{"cidade":"São Paulo","CEP":"11111-444","estado":"SP","logradouro":"Rua Esquerda","numero":"3"}},"ITEMS":{"PRODUTO":{"codigo":"1","nome":"Mussarela","Valor":{"$numberDouble":"65.0"},"qtd":{"$numberInt":"1"}}}})
+
+db.PRODUTOS.update( 
+{ nome: { $eq:“Margherita" } }
+, $set:   { valor: 80} }
+, { multi: true } 
+)
+
+db.CLIENTES.update( 
+{ nome: { $eq:“Rodrigo" } }
+, $set:   { senha: "nsi24@d"} }
+, { multi: true } 
+)
+db.PEDIDOS.update( 
+{ codigo: { $eq:2 } }
+, $set:   { total: 40} }
+, { multi: true } 
+)
+
+db.PRODUTOS.find({qtd: { $gte: 12, $lt: 20 }})
+db.CLIENTE.find({codigo: { $gt: 2, $lte: 5 }})
+db.PEDIDOS.find({total: { $gt: 10, $lte: 40 }})
+
+db.PRODUTOS.remove({nome: “Mussarela" })
+db.CLIENTES.remove({codigo: 3})
+db.PEDIDOS.remove({total: 9 })
