@@ -1,80 +1,69 @@
 /*
+DUPLA
+Nome: Diego Mendes Carloni    R.A.:2040482023018   Data: 02/08/2020
+Nome: Rodrigo Sanches Dias    R.A.:
+
+Atividade 01 – Estrutura de Dados
+
 
 1-crie um programa em linguagem C com 4 funções (somar, subatrair, multiplicar e dividir) 
 recebendo os parametros do tipo float A e float B o retorno de cada função deve ser o valor da operação matemática
-
 2-crie um program em linguagem C que crie uma matriz de 10,3 armazene a nota P1, P2 e MEDIA nas respectivas colunas, 
-crime uma função passando a matriz como parametro para identificar a maiorNotaP1, a maiorNotaP2 e a maiorMedia e mediaSala
+crie uma função passando a matriz como parametro para identificar a maiorNotaP1, a maiorNotaP2 e a maiorMedia e mediaSala
 
 */
-#include<stdio.h>
-#include<stdlib.h>
 
-//float r;
+#include <stdio.h>
+#include <stdlib.h>
 
-float somar(float x, float y)
+float somar(float a, float b)
 {
-    float r;
-    r = x + y;
-    return r;
+    float som;
+    som = a + b;
+    return som;
 }
 
 float subtrair(float a, float b)
 {
-    float r;
-    r = a - b;
-    return r;
+    float sub;
+    sub = a - b;
+    return sub;
 }
 
 float multiplicar(float a, float b)
 {
-    float r;
-    r = a * b;
-    return r;
+    float mult;
+    mult = a * b;
+    return mult;
 }
 
-float dividir(float a, float b)
+    float dividir(float a, float b)
 {
-    float r;
-    r = a/b;
-    return r;
+    float divi;
+    divi = a/b;
+    return divi;
 }
+
 
 int main()
 {
-    int op;
-    float a,b,result;
+    float a,b, rsoma, rsub, rmulti, rdivi;
     printf("Digite a\n");
-    scanf("%d", &a);
+    scanf("%f", &a);
     printf("Digite b\n");
-    scanf("%d", &b);
-    printf("Escolha a operacao:\n");
-    printf("1 para somar\n");
-    printf("2 para subtrair\n");
-    printf("3 para multiplicar\n");
-    printf("4 para dividir\n");
-    printf("0 para sair\n");
-    scanf("%i", &op);
-    switch (op)
-    {
-        case 1:
-            somar(a,b);
-            printf("Resultado da soma: %d", result);
-            break;
-        case 2:
-            subtrair(a,b);
-            printf("Resultado da subtracao: %d",result);
-            break;
-        case 3:
-            multiplicar(a,b);
-            printf("Resultado da multiplicacao: %d",result);
-            break;
-        case 4:
-            dividir(a,b);
-            printf("Resultado da divisao: %d",result);
-            break;
-        case 0:
-            break;
-    }
+    scanf("%f", &b);
+    
+            rsoma = somar(a,b);
+            printf("Resultado da soma: %.2f", rsoma);
+            
+            rsub = subtrair(a,b);
+            printf("\nResultado da subtracao: %.2f", rsub);
+            
+            rmulti = multiplicar(a,b);
+            printf("\nResultado da multiplicacao: %.2f", rmulti);
+            
+            rdivi = dividir(a,b);
+            printf("\nResultado da divisao: %.2f", rdivi);
+            
     return 0;
 }
