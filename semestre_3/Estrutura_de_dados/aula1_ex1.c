@@ -1,8 +1,4 @@
 /*
-DUPLA
-Nome: Diego Mendes Carloni    R.A.:2040482023018   Data: 02/08/2020
-Nome: Rodrigo Sanches Dias    R.A.:2040482023037
-
 Atividade 01 – Estrutura de Dados
 
 1-crie um programa em linguagem C com 4 funções (somar, subatrair, multiplicar e dividir) 
