@@ -18,7 +18,7 @@ crie uma função passando a matriz como parametro para identificar a maiorNotaP
 float notaAluno(int l, int c, float notaAlunos[l][c])
 {
 	int i;
-	float contadorUm, contadorDois, contadorMedia, mediaSala = 0, mediaAluno = 0;
+	float contadorUm = 0, contadorDois = 0, contadorMedia = 0, mediaSala = 0, mediaAluno = 0;
 	//maior p1, maior p2 e maior média
 	for(i=0; i<10; i++)
 	{
