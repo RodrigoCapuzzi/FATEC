@@ -1,10 +1,11 @@
-/*1- escreva uma função recursiva para calcular o valor de uma base x elevada a um expoente y*/
+/*
+1- Escreva uma função recursiva para calcular o valor de uma base x elevada a um expoente y.
+*/
 
 #include<stdio.h>
 
 int exponencial(int base, int expoente)
 {
-    int nova;
     if (expoente == 0)
         return 1;
     else
@@ -13,10 +14,10 @@ int exponencial(int base, int expoente)
 
 void main()
 {
-    int base, exp, resultado;
+    int base, exp;
     printf("Digite a base: ");
     scanf("%i", &base);
     printf("Digite o expoente: ");
     scanf("%i", &exp);
-    printf("Resultado: %i", exponencial(base, exp)); 
+    printf("%i elevado a %i eh: %i",base, exp, exponencial(base, exp)); 
 }
