@@ -10,61 +10,38 @@ Ao iniciar o programa determine um valor inicial para a variável saldo (utilize
 */
 
 #include <stdio.h>
-//#include <stdlib.h>
 
-int main() 
+void main() 
 {
-	int opcao =0, continua =0;
-	float vlSaque = 0.00, vlDeposito = 0.00;
+	int opcao = 0, continua = 0;
+	float vlSaque = 0.00, vlDeposito = 0.00, saldo = 3000.00;
 	float *p;
-	float saldo = 3000.00;
-	
 	p = &saldo; 
-	
-	printf("**Seja Bem vindo ao Caixa Eletronico**\n");
+	printf("\n***Caixa Eletronico Ponteiros SA***\n");
 	do{
-		printf("\nDigite a opcao desejada: \n");
-		printf ("\n1) Ver Saldo");
-        printf ("\n2) Saque");
-        printf ("\n3) Deposito\n\n");
+		printf("\nEscolha uma das opcoes abaixo: \n\n1- Saldo \n2- Saque\n3- Deposito\n\n");
         scanf("%i", &opcao);
-        
         switch (opcao){
 		case 1:
-			printf("Seu saldo atual e: R$ %.2f \n", *p);
+			printf("Saldo atual: R$ %.2f \n", *p);
 			break;
-		
 		case 2:
-			printf("Informe o valor que deseja sacar: \n");
+			printf("Quanto gostaria de sacar: \n");
 			scanf("%f", &vlSaque);
 			if(vlSaque > *p)
-            {
-				printf("Seu saldo e insuficiente para esse saque. Tente um valor menor: \n");
-			}
+				printf("Saldo insuficiente. Voce nao tem limite contratado. Tente um valor menor: \n");
             else
-            {
-                printf("%f", *p);
 				*p -= vlSaque;
-                printf("%f", *p);
-			}
 			break;
-			
 		case 3:
-			printf("Informe o valor que deseja depositar: \n");
+			printf("Qual valor gostaria de depositar: \n");
 			scanf("%f", &vlDeposito);
 			*p += vlDeposito;
 			break;
-			
 			default:
-				printf ("Opcao Invalida, tente novamente");
+				printf ("Escolha uma opcao valida");
 		}
-		
-		printf ("\nDeseja continuar? \n");
-		printf("1) Sim, me informe o menu novamente\n");
-        printf("2) Nao, desejo sair \n");
+		printf ("\nDeseja Sair? \n1) Nao. Voltar ao Menu Principal\n2) Sim, desejo sair.\n");
         scanf("%i", &continua);
-        
 	}while (continua==1);
-    
-    return 0;
 }
