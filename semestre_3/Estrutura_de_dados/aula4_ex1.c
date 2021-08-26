@@ -39,5 +39,7 @@ void main(){
 			default:
 				printf ("Escolha uma operacao valida");}
 		printf ("\nDeseja Sair? \n1) Nao. Voltar ao Menu Principal\n2) Sim, desejo sair.\n");
-        scanf("%i", &prosseguir);}
-    while (prosseguir==1);}
+        scanf("%i", &prosseguir);
+	}
+    while (prosseguir==1);
+}
