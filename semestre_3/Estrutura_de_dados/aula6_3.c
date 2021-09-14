@@ -36,16 +36,7 @@ void tiradafila(Fila *F)
         }
         return;
 }
-/*
-char* primeiro(Fila *F)
-{
-        if(F->tamanho!=0)
-        {
-                return F->elementos[F->primeiro];
-        }
-        return NULL;
-}
-*/
+
 void colocanafila(Fila *F , char *element)
 {
         if(F->tamanho == F->capacidade)
@@ -66,16 +57,28 @@ void colocanafila(Fila *F , char *element)
         return;
 }
 
-int main()
+int filavazia(struct Fila* fila)
+{
+        if (fila->tamanho == 0)
+        {
+                return 1;
+        }
+        else
+        {
+                return 0;
+        }
+}
+
+void main()
 {
         Fila *F = criafila(5);
-        colocanafila(F,"test");
-        colocanafila(F,"test");
-        colocanafila(F,"test");
-        colocanafila(F,"test");
-        //printf("Front element is %s\n",primeiro(F));
-        colocanafila(F,"test");
+        printf("A fila esta vazia? Resp: %i\n", filavazia(F));
+        colocanafila(F,"teste1");
+        colocanafila(F,"teste2");
+        colocanafila(F,"teste3");
+        colocanafila(F,"teste4");
+        colocanafila(F,"teste5");
         tiradafila(F);
-        colocanafila(F,"test");
-        //printf("Front element is %s\n",primeiro(F));
+        colocanafila(F,"teste6");
+        printf("A fila esta vazia? Resp: %i\n", filavazia(F));
 }
