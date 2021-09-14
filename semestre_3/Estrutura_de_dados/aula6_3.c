@@ -1,64 +1,81 @@
-//3. implemente uma fila dinamica de nomes char[100] . O módulo deve conter as funções  criafila,  colocanafila,  tiradafila,  filavazia .  
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-#include<stdio.h>
-
-struct {
-    * endInicioFila;
-} typedef fila;
-
-void criafila(f1)
+typedef struct Fila
 {
-    //TO-DO
+        int capacidade;
+        int tamanho;
+        int primeiro;
+        int ultimo;
+        char **elementos;
+}Fila;
+
+Fila * criafila(int maxElementos)
+{
+        Fila *F;
+        F = (Fila *)malloc(sizeof(Fila));
+        F->elementos = (char**)malloc(sizeof(char*)*maxElementos);
+        F->tamanho = 0;
+        F->capacidade = maxElementos;
+        F->primeiro = 0;
+        F->ultimo = -1;
+        return F;
 }
 
-void colocanafila()
+void tiradafila(Fila *F)
 {
-    item *itm = (item*)malloc(sizeof(item));
-	itm->numero = numero;
-	itm->proximo = NULL;
-	if(pFila->primeiro==NULL){
-		printf("end atual %x \n", itm);
-		pFila->primeiro = itm;	
-	} else {
-		printf("end atual %x \n", itm);
-		item *aux = pFila->primeiro;
-		while(aux->proximo != NULL){
-			aux = aux->proximo;	
-		}	
-		aux->proximo = itm;
-	}
+        if(F->tamanho!=0)
+        {
+                F->tamanho--;
+                F->primeiro++;
+                if(F->primeiro==F->capacidade)
+                {
+                        F->primeiro=0;
+                }
+        }
+        return;
+}
+/*
+char* primeiro(Fila *F)
+{
+        if(F->tamanho!=0)
+        {
+                return F->elementos[F->primeiro];
+        }
+        return NULL;
+}
+*/
+void colocanafila(Fila *F , char *element)
+{
+        if(F->tamanho == F->capacidade)
+        {
+                printf("Fila is Full\n");
+        }
+        else
+        {
+                F->tamanho++;
+                F->ultimo = F->ultimo + 1;
+                if(F->ultimo == F->capacidade)
+                {
+                        F->ultimo = 0;
+                }
+                F->elementos[F->ultimo] = (char *) malloc((sizeof element + 1)* sizeof(char));
+                strcpy(F->elementos[F->ultimo], element);
+        }
+        return;
 }
 
-void inserirItem(fila *pFila, float numero)
+int main()
 {
-	item *itm = (item*)malloc(sizeof(item));
-	itm->numero = numero;
-	itm->proximo = NULL;
-	if(pFila->primeiro==NULL){
-		printf("end atual %x \n", itm);
-		pFila->primeiro = itm;	
-	} else {
-		printf("end atual %x \n", itm);
-		item *aux = pFila->primeiro;
-		while(aux->proximo != NULL){
-			aux = aux->proximo;	
-		}	
-		aux->proximo = itm;
-	}
-}
-
-void tiradafila()
-{
-
-}
-
-void filavazia()
-{
-    //TO-DO
-}
-
-void main()
-{
-    char[100] nomes;
-    criafila(fila);
+        Fila *F = criafila(5);
+        colocanafila(F,"test");
+        colocanafila(F,"test");
+        colocanafila(F,"test");
+        colocanafila(F,"test");
+        //printf("Front element is %s\n",primeiro(F));
+        colocanafila(F,"test");
+        tiradafila(F);
+        colocanafila(F,"test");
+        //printf("Front element is %s\n",primeiro(F));
 }
